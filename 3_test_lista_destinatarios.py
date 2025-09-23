@@ -14,15 +14,15 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 def authenticate_gmail():
     creds = None
     # Cargar credenciales si ya existen
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+    if os.path.exists('confidencial/token.pickle'):
+        with open('confidencial/token.pickle', 'rb') as token:
             creds = pickle.load(token)
     # Si no hay credenciales válidas, iniciar flujo OAuth
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file('confidencial/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         with open('token.pickle', 'wb') as token:
             pickle.dump(creds, token)
@@ -49,7 +49,6 @@ if __name__ == '__main__':
     service = build('gmail', 'v1', credentials=creds)
 
     mensaje = create_message(
-        sender="felipe.buitragoca@autonoma.edu.co",
         to="felipebuitragocarmona@gmail.com,felipe.buitrago@ucaldas.edu.co",
         subject="Prueba Gmail API",
         message_text="Hola, este es un correo enviado con la Gmail API en Python."
