@@ -49,8 +49,8 @@ if __name__ == '__main__':
     service = build('gmail', 'v1', credentials=creds)
 
     mensaje = create_message(
-        sender="felipe.buitragoca@autonoma.edu.co",
-        to="felipe.buitrago@ucaldas.edu.co",
+        sender="joant0309@gmail.com",
+        to="joan.toro37917@ucaldas.edu.co",
         subject="Prueba Gmail API",
         message_text="Hola, este es un correo enviado con la Gmail API en Python."
     )

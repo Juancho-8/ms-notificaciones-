@@ -1,3 +1,12 @@
 venv
 .idea
 confidencial/*
+# Carpeta confidencial
+confidencial/
+
+# Entorno virtual
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
