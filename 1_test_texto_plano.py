@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     mensaje = create_message(
         sender="joant0309@gmail.com",
-        to="joan.toro37917@ucaldas.edu.co",
+        to="juanmagudelolopez@gmail.com",
         subject="Prueba Gmail API",
         message_text="Hola, este es un correo enviado con la Gmail API en Python."
     )

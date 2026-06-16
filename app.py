@@ -17,8 +17,12 @@ def authenticate_gmail():
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except Exception:
+                creds = None
+
+        if not creds or not creds.valid:
             flow = InstalledAppFlow.from_client_secrets_file(
                 'confidencial/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
@@ -49,7 +53,7 @@ def send_email():
     creds = authenticate_gmail()
     service = build('gmail', 'v1', credentials=creds)
 
-    message = create_message("tu_correo@gmail.com", to, subject, message_text)
+    message = create_message("juanmagudelolopez@gmail.com", to, subject, message_text)
 
     service.users().messages().send(userId="me", body=message).execute()
 
