@@ -1,6 +1,7 @@
 venv
 .idea
 confidencial/*
+.env
 # Carpeta confidencial
 confidencial/
 
