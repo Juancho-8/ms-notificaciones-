@@ -1,0 +1,7 @@
+# Las credenciales NO van en la imagen: se montan como volumen.
+confidencial
+.venv
+venv
+__pycache__
+*.pyc
+.git
